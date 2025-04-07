@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Stop all running Docker containers
-echo "Stopping no-code-architects running Docker containers..."
-docker stop $(docker ps -a --filter ancestor=no-code-architects-toolkit:testing --format="{{.ID}}")
+echo "Stopping nca-mod running Docker containers..."
+docker stop $(docker ps -a --filter ancestor=nca-mod:testing --format="{{.ID}}")
 
 # Build the Docker image
 echo "Building Docker image..."
-docker build -t no-code-architects-toolkit:testing .
+docker build -t nca-mod:testing .
 
 # Read variables from .variables file
 echo "Reading environment variables..."
@@ -34,7 +34,7 @@ for key in $(echo "$VARS" | jq -r 'keys[]'); do
 done
 
 # Complete the command
-CMD="$CMD no-code-architects-toolkit:testing"
+CMD="$CMD nca-mod:testing"
 
 # Run the Docker container
 echo "Running Docker container..."
