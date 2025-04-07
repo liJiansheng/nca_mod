@@ -14,7 +14,7 @@ from urllib.parse import quote
 v1_media_download_bp = Blueprint('v1_media_download', __name__)
 logger = logging.getLogger(__name__)
 
-@v1_media_download_bp.route('/v1/BETA/media/download', methods=['POST'])
+@v1_media_download_bp.route('/v1/media/download', methods=['POST'])
 @authenticate
 @validate_payload({
     "type": "object",
